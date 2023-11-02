@@ -1,7 +1,11 @@
 function greet(name) {
-  return name === null || name === undefined || name === ''
-    ? 'Hello, my friend.'
-    : `Hello, ${name}.`;
+  if (name === null || name === undefined || name === '') {
+    return 'Hello, my friend.';
+  }
+  if (name === name.toUpperCase()) {
+    return `HELLO, ${name}!`;
+  }
+  return `Hello, ${name}.`;
 }
 
 module.exports = greet;
