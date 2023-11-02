@@ -4,6 +4,7 @@
   "description": "devops-mini-proj-tdd-greetings",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon ./src/app.js",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "code:fix": "npm run prettier:fix && npm run lint:fix",
