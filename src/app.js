@@ -1,6 +1,5 @@
 function greet(name) {
-  const stringtToReturn = `Hello, ${name}.`;
-  return stringtToReturn;
+  return `Hello, ${name}.`;
 }
 
 module.exports = greet;
