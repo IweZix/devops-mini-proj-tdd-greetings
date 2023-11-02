@@ -1,8 +1,5 @@
 function greet(name) {
-  if (name === null || name === undefined || name === '') {
-    return 'Hello, my friend.';
-  }
-  return `Hello, ${name}.`;
+  return name === null || name === undefined || name === '' ? 'Hello, my friend.' : `Hello, ${name}.`;
 }
 
 module.exports = greet;
