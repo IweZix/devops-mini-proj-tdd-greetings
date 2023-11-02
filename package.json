@@ -5,11 +5,11 @@
   "main": "app.js",
   "scripts": {
     "prettier": "prettier --check .",
-        "prettier:fix": "prettier --write .",
-        "code:fix": "npm run prettier:fix && npm run lint:fix",
-        "test": "jest",
-        "test:coverage": "jest --coverage",
-        "test:watch": "jest --watchAll"
+    "prettier:fix": "prettier --write .",
+    "code:fix": "npm run prettier:fix && npm run lint:fix",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watchAll"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,9 @@
     "nodemon": "^3.0.1"
   },
   "devDependencies": {
+    "eslint": "^8.52.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.0",
     "prettier": "3.0.3"
   }
 }
