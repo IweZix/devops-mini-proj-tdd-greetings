@@ -1,8 +1,16 @@
+function isEqualsToNameUpperCase(str) {
+  return str === str.toUpperCase();
+}
+
+function isNullOrWhitespace(str) {
+  return str === null || str === undefined || str === '';
+}
+
 function greet(name) {
-  if (name === null || name === undefined || name === '') {
+  if (isNullOrWhitespace(name)) {
     return 'Hello, my friend.';
   }
-  if (name === name.toUpperCase()) {
+  if (isEqualsToNameUpperCase(name)) {
     return `HELLO, ${name}!`;
   }
   return `Hello, ${name}.`;
