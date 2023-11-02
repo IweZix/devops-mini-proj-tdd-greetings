@@ -5,7 +5,7 @@ const { test, expect } = require('@jest/globals');
 const greet = require('./app');
 
 // 1
-test('should return "Hello name"', () => {
+test('should return "Hello, Luca."', () => {
   const result = greet('Luca');
   expect(result).toEqual('Hello, Luca.');
 });
@@ -24,4 +24,10 @@ test('should return "Hello, my friends"', () => {
 test('should return "Hello, my friends"', () => {
   const result = greet('');
   expect(result).toEqual('Hello, my friend.');
+});
+
+// 3
+test('should return "HELLO, JERRY!"', () => {
+  const result = greet('JERRY');
+  expect(result).toEqual('HELLO, JERRY!');
 });
