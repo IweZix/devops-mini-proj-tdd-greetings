@@ -10,15 +10,9 @@ function isArrayWithTwoOrMoreNames(arr) {
   let stringToReturn = 'Hello, ';
   arr.forEach((n, index) => {
     if (arr.length === 2) {
-      if (index === arr.length - 1) {
-        stringToReturn += `and ${n}.`;
-      } else {
-        stringToReturn += `${n} `;
-      }
-    } else if (index === arr.length - 1) {
-      stringToReturn += `and ${n}.`;
+      stringToReturn += index === arr.length - 1 ? `and ${n}.` : `${n} `;
     } else {
-      stringToReturn += `${n}, `;
+      stringToReturn += index === arr.length - 1 ? `and ${n}.` : `${n}, `;
     }
   });
   return stringToReturn;
