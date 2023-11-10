@@ -6,13 +6,13 @@ function isEqualsToNameUpperCase(str) {
   return str === str.toUpperCase();
 }
 
-function isArrayAndHaveTwoNames(arr) {
+function isArrayWithTwoOrMoreNames(arr) {
   let stringToReturn = 'Hello, ';
   arr.forEach((n, index) => {
-    if (index === arr.length - 1) {
-      stringToReturn += `and ${n}.`;
+    if (arr.length === 2) {
+      stringToReturn += index === arr.length - 1 ? `and ${n}.` : `${n} `;
     } else {
-      stringToReturn += `${n} `;
+      stringToReturn += index === arr.length - 1 ? `and ${n}.` : `${n}, `;
     }
   });
   return stringToReturn;
@@ -23,7 +23,7 @@ function greet(name) {
     return 'Hello, my friend.';
   }
   if (Array.isArray(name)) {
-    return isArrayAndHaveTwoNames(name);
+    return isArrayWithTwoOrMoreNames(name);
   }
   if (isEqualsToNameUpperCase(name)) {
     return `HELLO, ${name}!`;
