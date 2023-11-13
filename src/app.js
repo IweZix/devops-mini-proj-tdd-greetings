@@ -9,15 +9,8 @@ function isEqualsToNameUpperCase(str) {
 
 function isArrayAndHaveTwoNames(arr) {
   let stringToReturn = 'Hello, ';
-  const upperCaseArray = [];
-  const lowerCaseArray = [];
-  arr.forEach((n) => {
-    if (isEqualsToNameUpperCase(n)) {
-      upperCaseArray.push(n);
-    } else {
-      lowerCaseArray.push(n);
-    }
-  });
+  const upperCaseArray = arr.filter(isEqualsToNameUpperCase);
+  const lowerCaseArray = arr.filter((n) => !isEqualsToNameUpperCase(n));
 
   if (upperCaseArray.length > 1) {
     return false;
