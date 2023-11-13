@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 function isNullOrWhitespace(str) {
   return str === null || str === undefined || str === '';
 }
@@ -6,15 +7,40 @@ function isEqualsToNameUpperCase(str) {
   return str === str.toUpperCase();
 }
 
-function isArrayWithTwoOrMoreNames(arr) {
+function isArrayAndHaveTwoNames(arr) {
   let stringToReturn = 'Hello, ';
-  arr.forEach((n, index) => {
-    if (arr.length === 2) {
-      stringToReturn += index === arr.length - 1 ? `and ${n}.` : `${n} `;
+  const upperCaseArray = [];
+  const lowerCaseArray = [];
+  arr.forEach((n) => {
+    if (isEqualsToNameUpperCase(n)) {
+      upperCaseArray.push(n);
     } else {
-      stringToReturn += index === arr.length - 1 ? `and ${n}.` : `${n}, `;
+      lowerCaseArray.push(n);
     }
   });
+
+  if (upperCaseArray.length > 1) {
+    return false;
+  }
+
+  // eslint-disable-next-line no-plusplus
+  for (let index = 0; index < lowerCaseArray.length; index++) {
+    const n = lowerCaseArray[index];
+
+    if (lowerCaseArray.length === 2) {
+      stringToReturn += `${lowerCaseArray[0]} and ${lowerCaseArray[1]}.`;
+      break;
+    } else if (index === lowerCaseArray.length - 1) {
+      stringToReturn += `and ${n}.`;
+    } else {
+      stringToReturn += `${n}, `;
+    }
+  }
+
+  if (upperCaseArray.length === 1) {
+    stringToReturn += ` AND HELLO ${upperCaseArray[0]} !`;
+  }
+
   return stringToReturn;
 }
 
@@ -23,7 +49,7 @@ function greet(name) {
     return 'Hello, my friend.';
   }
   if (Array.isArray(name)) {
-    return isArrayWithTwoOrMoreNames(name);
+    return isArrayAndHaveTwoNames(name);
   }
   if (isEqualsToNameUpperCase(name)) {
     return `HELLO, ${name}!`;
