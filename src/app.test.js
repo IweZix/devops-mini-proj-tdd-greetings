@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-unresolved */
 const { test, expect } = require('@jest/globals');
@@ -42,4 +43,15 @@ test('should return "Hello, Jill and Jane."', () => {
 test('should return "Hello, Amy, Brian, and Charlotte."', () => {
   const result = greet(['Amy', 'Brian', 'Charlotte']);
   expect(result).toEqual('Hello, Amy, Brian, and Charlotte.');
+});
+
+// 6
+test('should return "Hello, Amy and Charlotte. AND HELLO BRIAN!"', () => {
+  const result = greet(['Amy', 'BRIAN', 'Charlotte']);
+  expect(result).toEqual('Hello, Amy and Charlotte. AND HELLO BRIAN !');
+});
+
+test('should return false', () => {
+  const result = greet(['Amy', 'BRIAN', 'CHARLOTTE']);
+  expect(result).toEqual(false);
 });
