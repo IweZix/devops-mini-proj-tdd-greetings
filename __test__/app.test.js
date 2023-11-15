@@ -1,9 +1,6 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable import/no-unresolved */
 const { test, expect } = require('@jest/globals');
 
-const greet = require('./app');
+const greet = require('../src/app');
 
 // 1
 test('should return "Hello, Luca."', () => {

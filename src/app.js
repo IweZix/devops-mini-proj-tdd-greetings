@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 function isNullOrWhitespace(str) {
   return str === null || str === undefined || str === '';
 }
@@ -10,10 +9,10 @@ function isEqualsToNameUpperCase(str) {
 function isArrayAndHaveTwoNames(arr) {
   const languages = ['fr', 'nl', 'en'];
   let concat;
-  let language = arr.find((n) => languages.includes(n));
-  let names = arr.filter((n) => !languages.includes(n));
-  let upperCaseNames = names.filter((n) => n === n.toUpperCase());
-  let lowerCaseNames = names.filter((n) => n !== n.toUpperCase());
+  const language = arr.find((n) => languages.includes(n));
+  const names = arr.filter((n) => !languages.includes(n));
+  const upperCaseNames = names.filter((n) => n === n.toUpperCase());
+  const lowerCaseNames = names.filter((n) => n !== n.toUpperCase());
 
   if (upperCaseNames.length > 1 || names.length !== lowerCaseNames.length + upperCaseNames.length) {
     return false;
@@ -37,8 +36,8 @@ function isArrayAndHaveTwoNames(arr) {
 
   let stringToReturn = `${greeting}, `;
   lowerCaseNames.forEach((n, index) => {
-    if (lowerCaseNames.length === 1){
-      stringToReturn += `${n}.`
+    if (lowerCaseNames.length === 1) {
+      stringToReturn += `${n}.`;
     } else if (index === lowerCaseNames.length - 1) {
       stringToReturn += `${concat}${n}.`;
     } else {
@@ -52,7 +51,6 @@ function isArrayAndHaveTwoNames(arr) {
 
   return stringToReturn;
 }
-
 
 function greet(name) {
   if (isNullOrWhitespace(name)) {
