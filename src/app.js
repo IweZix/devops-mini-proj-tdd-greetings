@@ -8,34 +8,51 @@ function isEqualsToNameUpperCase(str) {
 }
 
 function isArrayAndHaveTwoNames(arr) {
-  let stringToReturn = 'Hello, ';
-  const upperCaseArray = arr.filter(isEqualsToNameUpperCase);
-  const lowerCaseArray = arr.filter((n) => !isEqualsToNameUpperCase(n));
+  const languages = ['fr', 'nl', 'en'];
+  let concat;
+  let language = arr.find((n) => languages.includes(n));
+  let names = arr.filter((n) => !languages.includes(n));
+  let upperCaseNames = names.filter((n) => n === n.toUpperCase());
+  let lowerCaseNames = names.filter((n) => n !== n.toUpperCase());
 
-  if (upperCaseArray.length > 1) {
+  if (upperCaseNames.length > 1 || names.length !== lowerCaseNames.length + upperCaseNames.length) {
     return false;
   }
 
-  // eslint-disable-next-line no-plusplus
-  for (let index = 0; index < lowerCaseArray.length; index++) {
-    const n = lowerCaseArray[index];
-
-    if (lowerCaseArray.length === 2) {
-      stringToReturn += `${lowerCaseArray[0]} and ${lowerCaseArray[1]}.`;
+  let greeting;
+  switch (language) {
+    case 'fr':
+      greeting = 'Bonjour';
+      concat = 'et ';
       break;
-    } else if (index === lowerCaseArray.length - 1) {
-      stringToReturn += `and ${n}.`;
-    } else {
-      stringToReturn += `${n}, `;
-    }
+    case 'nl':
+      greeting = 'Hallo';
+      concat = 'en ';
+      break;
+    default:
+      greeting = 'Hello';
+      concat = 'and ';
+      break;
   }
 
-  if (upperCaseArray.length === 1) {
-    stringToReturn += ` AND HELLO ${upperCaseArray[0]} !`;
+  let stringToReturn = `${greeting}, `;
+  lowerCaseNames.forEach((n, index) => {
+    if (lowerCaseNames.length === 1){
+      stringToReturn += `${n}.`
+    } else if (index === lowerCaseNames.length - 1) {
+      stringToReturn += `${concat}${n}.`;
+    } else {
+      stringToReturn += `${n}${index === lowerCaseNames.length - 2 ? ' ' : ', '}`;
+    }
+  });
+
+  if (upperCaseNames.length === 1) {
+    stringToReturn += ` AND HELLO ${upperCaseNames[0]} !`;
   }
 
   return stringToReturn;
 }
+
 
 function greet(name) {
   if (isNullOrWhitespace(name)) {
