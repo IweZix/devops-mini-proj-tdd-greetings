@@ -8,100 +8,51 @@ function isEqualsToNameUpperCase(str) {
 }
 
 function isArrayAndHaveTwoNames(arr) {
-  let stringToReturn = 'Hello, ';
+  const languages = ['fr', 'nl', 'en'];
   let concat;
-  let language;
-  let countLanguage;
-  let newArray = [];
-  const upperCaseArray = arr.filter(isEqualsToNameUpperCase);
-  const lowerCaseArray = arr.filter((n) => !isEqualsToNameUpperCase(n));
+  let language = arr.find((n) => languages.includes(n));
+  let names = arr.filter((n) => !languages.includes(n));
+  let upperCaseNames = names.filter((n) => n === n.toUpperCase());
+  let lowerCaseNames = names.filter((n) => n !== n.toUpperCase());
 
-  if (upperCaseArray.length > 1) {
+  if (upperCaseNames.length > 1 || names.length !== lowerCaseNames.length + upperCaseNames.length) {
     return false;
   }
 
-  // eslint-disable-next-line no-plusplus
-  for (let index = 0; index < lowerCaseArray.length; index++) {
-    const n = lowerCaseArray[index];
-
-    if (lowerCaseArray.length === 2) {
-      stringToReturn += `${lowerCaseArray[0]} and ${lowerCaseArray[1]}.`;
+  let greeting;
+  switch (language) {
+    case 'fr':
+      greeting = 'Bonjour';
+      concat = 'et ';
       break;
-    } else if (index === lowerCaseArray.length - 1) {
-      stringToReturn += `and ${n}.`;
+    case 'nl':
+      greeting = 'Hallo';
+      concat = 'en ';
+      break;
+    default:
+      greeting = 'Hello';
+      concat = 'and ';
+      break;
+  }
+
+  let stringToReturn = `${greeting}, `;
+  lowerCaseNames.forEach((n, index) => {
+    if (lowerCaseNames.length === 1){
+      stringToReturn += `${n}.`
+    } else if (index === lowerCaseNames.length - 1) {
+      stringToReturn += `${concat}${n}.`;
     } else {
-      stringToReturn += `${n}, `;
+      stringToReturn += `${n}${index === lowerCaseNames.length - 2 ? ' ' : ', '}`;
     }
+  });
+
+  if (upperCaseNames.length === 1) {
+    stringToReturn += ` AND HELLO ${upperCaseNames[0]} !`;
   }
 
-  if (upperCaseArray.length === 1) {
-    stringToReturn += ` AND HELLO ${upperCaseArray[0]} !`;
-  }
-
-  arr.forEach((n, index) => {
-    if (n.length === 2) {
-      countLanguage++;
-      if (n === 'fr' || n === 'nl' || n === 'en') {
-        language = n;
-        arr.splice(index, 1);
-      }
-    } else {
-      newArray.push(n);
-    }
-  })
-  // if more than a language
-  if (countLanguage > 1){
-    return false;
-  }
-
-  // if language isn't a save language
-  if (countLanguage === 1 && language === ' '){
-    return false;
-  }
-  
-  if (language === 'fr') {
-    stringToReturn = 'Bonjour, ';
-    concat = 'et ';
-    arr.forEach((n, index) => {
-      console.log(n);
-      if (arr.length === 1){
-        stringToReturn += `${n}.`
-      } else if (index === arr.length - 1) {
-        stringToReturn += `${concat}${n}.`;
-      } else {
-        stringToReturn += `${n} `;
-      }
-    });
-  } else if (language === 'nl') {
-    stringToReturn = 'Hallo, ';
-    concat = 'en ';
-    arr.forEach((n, index) => {
-      console.log(n);
-      if (arr.length === 1){
-        stringToReturn += `${n}.`
-      } else if (index === arr.length - 1) {
-        stringToReturn += `${concat}${n}.`;
-      } else {
-        stringToReturn += `${n} `;
-      }
-    });
-  } else if (language === 'en') {
-    stringToReturn = 'Hello, '
-    concat = 'and '; 
-    arr.forEach((n, index) => {
-      console.log(n);
-      if (arr.length === 1){
-        stringToReturn += `${n}.`
-      } else if (index === arr.length - 1) {
-        stringToReturn += `${concat}${n}.`;
-      } else {
-        stringToReturn += `${n} `;
-      }
-    });
-  }
-  
   return stringToReturn;
 }
+
 
 function greet(name) {
   if (isNullOrWhitespace(name)) {
