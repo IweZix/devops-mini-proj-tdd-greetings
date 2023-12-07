@@ -1,0 +1,35 @@
+name: Intégration
+run-name: IweZix is testing out GitHub Actions 🚀
+on:
+  pull_request:
+    types: [opened, edited]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v2
+
+      - name: Install depencies
+        run: npm i
+
+      - name: Starting pipeline
+        run: echo "Pipeline started at $(date)"
+
+      - name: Fomatting Prettier
+        run: npm run prettier:fix
+
+      - name: Formatting Lint
+        run: npm run lint:fix
+
+      - name: Test and coverage with Jest
+        run: npm run test && npm run test:coverage
+
+      - name: Build
+        run: npm run build
+
+      - name: End of pipeline
+        run: echo "Pipeline ended at $(date)"
+      
+      - name: Success message
+        run: echo "PIPELINE SUCCESS WITHOUT ERRORS"
