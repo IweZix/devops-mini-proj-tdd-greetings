@@ -10,7 +10,7 @@ jobs:
       - name: Checkout du code
         uses: actions/checkout@v2
 
-      - name: Install depencies
+      - name: Install dependencies
         run: npm i
 
       - name: Starting pipeline
