@@ -1,11 +1,26 @@
+/**
+ * Check if a string is null, undefined or empty
+ * @param {String} str to check
+ * @returns {Boolean} true if str is null, undefined or empty
+ */
 function isNullOrWhitespace(str) {
   return str === null || str === undefined || str === '';
 }
 
+/**
+ * Check if a string is equals to his upper case
+ * @param {String} str to check
+ * @returns {Boolean} true if str is equals to his upper case
+ */
 function isEqualsToNameUpperCase(str) {
   return str === str.toUpperCase();
 }
 
+/**
+ * Check if an array have two names
+ * @param {Array} arr to check
+ * @returns {String} Greeting message
+ */
 function isArrayAndHaveTwoNames(arr) {
   const languages = ['fr', 'nl', 'en'];
   let concat;
@@ -52,6 +67,11 @@ function isArrayAndHaveTwoNames(arr) {
   return stringToReturn;
 }
 
+/**
+ * Greet some name(s)
+ * @param {String[]} name Name(s) to greet
+ * @returns {String} Greeting message
+ */
 function greet(name) {
   if (isNullOrWhitespace(name)) {
     return 'Hello, my friend.';
