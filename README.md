@@ -10,6 +10,9 @@ Travail de recherche , mettre en place de l'integration continue avec les GitHub
   - [Kilian De Smet](https://github.com/kilianDeSmet)
   - [Arthur Stoffels](https://github.com/Arthi2507)
 
+- [Repo GitHub](https://github.com/IweZix/devops-mini-proj-tdd-greetings)
+
+
 ## Énoncé
 
 ### Pré-requis :
