@@ -1,6 +1,9 @@
 name: Intégration
 run-name: Testing out GitHub Actions 🚀
 on:
+  push:
+    branches:
+      - main
   pull_request:
     types: [opened, edited]
 jobs:
