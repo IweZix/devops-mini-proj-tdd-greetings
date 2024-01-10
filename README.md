@@ -4,7 +4,7 @@ Travail de recherche , mettre en place de l'integration continue avec les GitHub
 
 ## Informations
 
-- N° de groupe : 25
+- N° de groupe : 25 
 - Membres du groupe :
   - [Luca NICOLAS](https://github.com/IweZix)
   - [Kilian De Smet](https://github.com/kilianDeSmet)
